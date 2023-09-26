@@ -1,4 +1,4 @@
-#!/bin/bash/env python
+#!/bin/bash/env python3
 """Script to concatenate two strings"""
 
 
