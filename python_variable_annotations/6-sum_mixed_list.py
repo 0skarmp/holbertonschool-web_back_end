@@ -8,5 +8,5 @@ def sum_mixed_list(mxd_lst: List[Union[int, float]]) -> float:
     """Sums the elements in a list of integers and floats"""
     for nums_mixed in mxd_lst:
         n_float = 0
-        n_float += float(nums_mixed)
+        n_float += nums_mixed
         return n_float
