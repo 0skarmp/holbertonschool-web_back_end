@@ -1,4 +1,4 @@
-#!/bin/usr/env python3
+#!/usr/bin/env python3
 """scrip to return a float of mix int and float"""
 
 from typing import List, Union
