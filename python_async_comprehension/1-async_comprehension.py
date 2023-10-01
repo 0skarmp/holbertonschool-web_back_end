@@ -1,4 +1,4 @@
-#!/usr/bin/evn python3
+#!/usr/bin/env python3
 """scritp asycn python"""
 import asyncio
 from typing import List
