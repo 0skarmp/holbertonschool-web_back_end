@@ -1,2 +1,2 @@
 // script to count all the documents
-db.school.countDocuments();
+db.school.count()
