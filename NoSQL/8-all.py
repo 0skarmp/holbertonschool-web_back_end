@@ -3,6 +3,7 @@
 
 
 def list_all(mongo_collection):
+    """function to return an empty list"""
     empty_list = []
     collection = mongo_collection.find()
     for document in collection:
