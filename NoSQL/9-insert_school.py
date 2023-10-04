@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """script to insert"""
-from pymongo import mongoClient
+from pymongo import MongoClient
 
 
 def insert_school(mongo_collection, **kwargs):
