@@ -1,2 +1,2 @@
 // scritp to insert document
-db.mongo.insertOne({"name":"Holberton School"})
+db.school.insertOne({"name":"Holberton School"})
