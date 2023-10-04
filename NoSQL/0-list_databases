@@ -1,0 +1,5 @@
+#!/usr/bin/env python3
+"""mongo db, script to list all databases"""
+
+
+show dbs
