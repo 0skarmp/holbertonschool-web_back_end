@@ -1,8 +1,19 @@
 #!/usr/bin/env python3
-""" Hypermedia pagination """
+""" Script tht have class Server that page
+    a database of popular baby names stored in a CSV file
+"""
 import csv
-from math import ceil
-from typing import List, Tuple, Dict
+import math
+from typing import List, Tuple
+
+
+def index_range(page, page_size) -> Tuple[int, int]:
+    """ return tuple that have range index of the list
+    """
+    start_index = (page - 1) * page_size
+    last_index = page * page_size
+
+    return (start_index, last_index)
 
 
 class Server:
@@ -25,49 +36,19 @@ class Server:
         return self.__dataset
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
-        """
-            Get the page
-
-            Args:
-                page: Current page
-                page_size: Total size of the page
-
-            Return:
-                List of the pagination done
+        """ Returns the data page according to the parameters.
+            if return an empty list
         """
         assert isinstance(page, int) and page > 0
         assert isinstance(page_size, int) and page_size > 0
 
-        range: Tuple = index_range(page, page_size)
-        pagination: List = self.dataset()
+        # primera y ulima posicion de la pagina actual.
+        first_index, last_index = index_range(page, page_size)
 
-        return (pagination[range[0]:range[1]])
+        # longitud de todos los datos en el archivo csv.
+        data_size = len(self.dataset())
 
-    def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict:
-        """
-            Range of the page
+        if first_index > data_size or last_index > data_size:
+            return []
 
-            Args:
-                page: Current page
-                page_size: Total size of the page
-
-            Return:
-                Dict with different arguments
-                page_size: the length of the returned dataset page
-                page: the current page number
-                data: the dataset page
-                (equivalent to return from previous task)
-                next_page: number of the next page, None if no next page
-                prev_page: number of the previous page,
-                None if no previous page
-                total_pages: the total number of pages
-                in the dataset as an integer
-        """
-
-        data = []
-        try:
-            data = self.get_page(page, page_size)
-        except AssertionError:
-            return {}
-
-
+        return [self.dataset()[i] for i in range(first_index, last_index)]
