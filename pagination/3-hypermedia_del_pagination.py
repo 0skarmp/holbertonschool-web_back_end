@@ -57,4 +57,9 @@ class Server:
             next_index = size_data
 
         data = self.dataset()[index: next_index]
-
+        return {
+                    'index': index,
+                    'next_index': next_index,
+                    'page_size': len(data),
+                    'data': data
+                }
