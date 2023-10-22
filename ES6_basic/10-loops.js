@@ -3,5 +3,5 @@ export default function appendToEachArrayValue(array, appendString) {
   for (const idx of array) {
     ls.push(appendString + idx);
   }
-  return array;
+  return ls;
 }
